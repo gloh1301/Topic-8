@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vue Forms</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Hello Vue Forms</h1>
+        <label for="name">Please enter your name: </label>
+
+        <!-- updates data -->
+        <input v-model="name" id="name">
+
+        <!-- similar to an if else function -->
+        <div v-if="name">
+            <p>Your name is {{ name }}</p>
+            <button v-on:click="clear">Clear Input</button>
+        </div>
+        <div v-else>
+            <p>Awaiting user input.</p>
+        </div>
+    </div>
+
+    <script>
+        let app = Vue.createApp({
+            data() {
+                return {
+                    name: ''
+                }
+            },
+            methods: {
+                clear() {
+                    this.name = ''
+                }
+            }
+        })
+
+        app.mount('#app')
+
+    </script>
+
+</body>
+</html>
